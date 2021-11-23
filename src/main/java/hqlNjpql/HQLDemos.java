@@ -9,16 +9,13 @@ public class HQLDemos
 {
 	
 	//task
-	public void filterNames()
+	public void filterNames(char input)
 	{
-		char c;
-		System.out.println("Enter Character : ");
-		Scanner scan=new Scanner(System.in);
-		c=scan.next().charAt(0);
+		
 		EntityManagerFactory eFac=Persistence.createEntityManagerFactory("MyDB");
 		EntityManager eMan=eFac.createEntityManager();
-    	Query qry = eMan.createQuery("select e from Employee e where e.fname like concat(:ch,'%')");
-    	qry.setParameter("ch", c);
+    	Query qry = eMan.createQuery("select e from Employee e where e.fname LIKE :expr");
+    	qry.setParameter("expr",input+"%");
     	List<Employee> emps=qry.getResultList();
     	for(Employee e : emps) {
     		System.out.println(e);
