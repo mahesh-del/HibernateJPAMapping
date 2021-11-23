@@ -13,9 +13,16 @@ public class HQLDemos
 		EntityManager eMan=eFac.createEntityManager();
 		
 		//Query qry= eMan.createQuery("from Employee");
-		Query qry=eMan.createQuery("select DISTINCT e.fname from Employee e");
-		List<String> fnames=qry.getResultList();
-		System.out.println(fnames);
+		//Query qry=eMan.createQuery("select DISTINCT e.fname from Employee e");
+		//List<String> fnames=qry.getResultList();
+		//System.out.println(fnames);
+		Query qry=eMan.createQuery("select e.fname,e.lname  from Employee e");
+		List<Object[]> fnames=qry.getResultList();
+		for(Object[] obj : fnames)
+		{
+			System.out.println(obj[0]+" "+obj[1]);
+		}
+		
 		/*qry.setFirstResult(5);
 		qry.setMaxResults(5);
 		//Query qry= eMan.createQuery("select e from Employee e");
