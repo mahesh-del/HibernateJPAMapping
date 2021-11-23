@@ -29,6 +29,8 @@ public class App
     {
     	HQLDemos hd=new HQLDemos();
     	hd.demos();
+    	HQLDemos fn=new HQLDemos();
+    	fn.filterNames();
     	//Inheritence Demo
     	/*Bank bank=new Bank();
         bank.setBankid("B0001");
