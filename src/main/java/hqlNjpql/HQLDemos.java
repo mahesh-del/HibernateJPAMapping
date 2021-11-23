@@ -12,8 +12,11 @@ public class HQLDemos
 		EntityManagerFactory eFac=Persistence.createEntityManagerFactory("MyDB");
 		EntityManager eMan=eFac.createEntityManager();
 		
-		Query qry= eMan.createQuery("from Employee");
-		qry.setFirstResult(5);
+		//Query qry= eMan.createQuery("from Employee");
+		Query qry=eMan.createQuery("select DISTINCT e.fname from Employee e");
+		List<String> fnames=qry.getResultList();
+		System.out.println(fnames);
+		/*qry.setFirstResult(5);
 		qry.setMaxResults(5);
 		//Query qry= eMan.createQuery("select e from Employee e");
 		//Query qry= eMan.createQuery("select e from Employee e WHERE e.salary>17000");
@@ -24,7 +27,7 @@ public class HQLDemos
 		for(Employee e : emps)
 		{
 			System.out.println(e);
-		}
+		}*/
 		eMan.close();
 		eFac.close();
 	}
