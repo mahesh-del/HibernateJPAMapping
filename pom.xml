@@ -13,6 +13,7 @@
   <url>http://www.example.com</url>
 
   <properties>
+  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
